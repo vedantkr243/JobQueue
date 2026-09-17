@@ -64,12 +64,7 @@ CREATE DATABASE job_queue;
 Then set the connection values in the backend `.env` file:
 
 ```env
-DATABASE_HOST=localhost
-DATABASE_PORT=5432
-DATABASE_USER=postgres
-DATABASE_PASSWORD=your_password
-DATABASE_NAME=job_queue
-PORT=3000
+DATABASE_URL=...
 ```
 
 ## Backend Setup
@@ -88,12 +83,7 @@ npm run dev
 
 ## Environment Variables
 Backend:
-- DATABASE_HOST
-- DATABASE_PORT
-- DATABASE_USER
-- DATABASE_PASSWORD
-- DATABASE_NAME
-- PORT
+- DATABASE_URL
 
 Frontend:
 - VITE_API_URL
@@ -105,8 +95,9 @@ Create a new job.
 Example request:
 ```json
 {
-  "title": "Send Welcome Email",
-  "type": "email"
+  "id": "Your Job id",
+  "title": "Title of your job",
+  "type": "Type of ypur job"
 }
 ```
 
