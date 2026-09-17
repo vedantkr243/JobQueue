@@ -33,6 +33,7 @@ function App() {
         : [];
       setJobs(normalizedJobs);
     } catch (err) {
+      setJobs([]);
       setError(err.message || 'Failed to load jobs.');
     } finally {
       setLoading(false);
@@ -192,12 +193,14 @@ function App() {
             </select>
           </div>
 
-          {error && <div className="error-box">{error}</div>}
+          {error && !loading && !jobs.length && filter === 'all' ? (
+            <div className="error-box">{error}</div>
+          ) : null}
 
           {loading ? (
             <p>Loading jobs...</p>
           ) : filteredJobs.length === 0 ? (
-            <p>No jobs found.</p>
+            <p>No jobs available.</p>
           ) : (
             <div className="table-wrap">
               <table>

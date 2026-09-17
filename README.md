@@ -83,7 +83,7 @@ npm run dev
 
 ## Environment Variables
 Backend:
-- DATABASE_URL
+- DATABASE_
 
 Frontend:
 - VITE_API_URL
